@@ -1,1 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int zone;
+    int fare = 0;
+
+    cout << "Enter Zone (1-3): ";
+    cin >> zone;
+
+    switch (zone)
+    {
+        case 1:
+            fare = 1000;
+            break;
+
+        case 2:
+            fare = 2000;
+            break;
+
+        case 3:
+            fare = 3000;
+            break;
+
+        default:
+            cout << "Invalid Zone";
+            return 0;
+    }
+
+    cout << "Fare: Rs " << fare / 100 << endl;
+
+    return 0;
+}
 
