@@ -1,16 +1,20 @@
-#include <iostream> using namespace std;
+#include <iostream> 
+using namespace std;
 
 int main()
 {
 int zone, hour; int fare = 0;
 int balance = 20000; 
-cout << "Enter Zone (1-3): "; cin >> zone;
+cout << "Enter Zone (1-3): "; 
+cin >> zone;
 
-cout << "Enter Hour (0-23): "; cin >> hour;
+cout << "Enter Hour (0-23): "; 
+cin >> hour;
 
 if (hour < 0 || hour > 23)
 {
-cout << "Invalid Hour"; return 0;
+cout << "Invalid Hour";
+ return 0;
 }
 
 
@@ -19,7 +23,8 @@ else if (zone == 2) fare = 2000;
 else if (zone == 3) fare = 3000;
 else
 {
-cout << "Invalid Zone"; return 0;
+cout << "Invalid Zone";
+ return 0;
 }
 
 
@@ -35,7 +40,8 @@ if (balance - fare >= 5000)
 balance = balance - fare;
 
 
-cout << "Fare: Rs " << fare / 100 << endl; cout << "Journey Successful" << endl;
+cout << "Fare: Rs " << fare / 100 << endl; 
+cout << "Journey Successful" << endl;
 
 cout << "Remaining Balance: Rs "
 << balance / 100 << endl;
