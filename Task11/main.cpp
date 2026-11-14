@@ -3,9 +3,11 @@ using namespace std;
 
 int main()
 {
-long long journeys; long long fare = 2000; long long total;
+long long journeys; long long fare = 2000;
+ long long total;
 
-cout << "Enter Number of Journeys: "; cin >> journeys;
+cout << "Enter Number of Journeys: "; 
+cin >> journeys;
 
 total = journeys * fare;
 
