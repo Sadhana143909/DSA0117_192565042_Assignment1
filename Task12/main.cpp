@@ -1,79 +1,88 @@
-#include <iostream> using namespace std;
+#include <iostream>
+using namespace std;
 
 int main()
 {
-int zone, hour; int fare = 0;
-int balance = 20000;
+    int zone, hour;
+    int fare = 0;
+    int balance = 20000;
+    int weekend, pass;
 
+    cout << "Enter Zone (1-4): ";
+    cin >> zone;
 
-int weekend, pass;
+    cout << "Enter Hour: ";
+    cin >> hour;
 
+    cout << "Is it Weekend? (1-Yes, 0-No): ";
+    cin >> weekend;
 
-cout << "Enter Zone (1-4): "; cin >> zone;
+    cout << "Do you have Monthly Pass? (1-Yes, 0-No): ";
+    cin >> pass;
 
-cout << "Enter Hour: ";
- 
-cin >> hour;
+    if (hour < 0 || hour > 23)
+    {
+        cout << "Invalid Hour";
+        return 0;
+    }
 
+    if (zone < 1 || zone > 4)
+    {
+        cout << "Invalid Zone";
+        return 0;
+    }
 
-cout << "Is it Weekend? (1-Yes, 0-No): "; cin >> weekend;
+    if ((weekend != 0 && weekend != 1) ||
+        (pass != 0 && pass != 1))
+    {
+        cout << "Invalid Input";
+        return 0;
+    }
 
-cout << "Do you have Monthly Pass? (1-Yes, 0-No): "; cin >> pass;
+    // Monthly pass covers Inner and Middle zones
+    if (pass == 1 && (zone == 1 || zone == 2))
+    {
+        fare = 0;
+    }
+    else
+    {
+        if (zone == 1)
+            fare = 1000;
+        else if (zone == 2)
+            fare = 2000;
+        else if (zone == 3)
+            fare = 3000;
+        else
+            fare = 6000;
 
-if (hour < 0 || hour > 23)
-{
-cout << "Invalid Hour"; return 0;
-}
+        if (weekend == 1)
+        {
+            fare = fare - fare * 10 / 100;
+        }
+        else
+        {
+            if ((hour >= 8 && hour < 10) ||
+                (hour >= 17 && hour < 20))
+            {
+                fare = fare + fare * 20 / 100;
+            }
+        }
+    }
 
+    if (balance - fare >= 5000)
+    {
+        balance = balance - fare;
 
-if (zone < 1 || zone > 4)
-{
-cout << "Invalid Zone"; return 0;
-}
+        cout << "Fare: Rs " << fare / 100 << endl;
+        cout << "Journey Successful" << endl;
 
+        cout << "Remaining Balance: Rs "
+             << balance / 100 << endl;
+    }
+    else
+    {
+        cout << "Insufficient Balance";
+    }
 
-// Monthly pass covers Inner and Middle if (pass == 1 && (zone == 1 || zone == 2))
-{
-fare = 0;
-}
-else
-{
-if (zone == 1) fare = 1000;
-else if (zone == 2) fare = 2000;
-else if (zone == 3)
- 
-fare = 3000; else
-fare = 6000;
-
-
-if (weekend == 1)
-{
-fare = fare - fare * 10 / 100;
-}
-else
-{
-if ((hour >= 8 && hour < 10) || (hour >= 17 && hour < 20))
-{
-fare = fare + fare * 20 / 100;
-}
-}
-}
-
-
-if (balance - fare >= 5000)
-{
-balance = balance - fare;
-
-
-cout << "Fare: Rs " << fare / 100 << endl; cout << "Journey Successful" << endl;
-
-cout << "Remaining Balance: Rs "
-<< balance / 100 << endl;
-}
-else
-{
-cout << "Insufficient Balance";
-}
- 
-return 0;
+    return 0;
 }
