@@ -1,23 +1,25 @@
-#include <iostream> using namespace std;
+#include <iostream>
+using namespace std;
 
 int main()
 {
-int zon 
-cout << "Enter Zone (1-3): "; cin >> zone;
+    int zone;
 
-if (cin.fail())
-{
-cout << "Invalid Input";
-}
-else if (zone >= 1 && zone <= 3)
-{
-cout << "Valid Zone";
-}
-else
-{
-cout << "Invalid Zone";
-}
+    cout << "Enter Zone (1-3): ";
+    cin >> zone;
 
+    if (cin.fail())
+    {
+        cout << "Invalid Input";
+    }
+    else if (zone >= 1 && zone <= 3)
+    {
+        cout << "Valid Zone";
+    }
+    else
+    {
+        cout << "Invalid Zone";
+    }
 
-return 0;
+    return 0;
 }
